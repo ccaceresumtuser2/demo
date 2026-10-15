@@ -1,0 +1,19 @@
+name: Hola Mundo
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:        # permite ejecutarlo a mano desde GitHub
+
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decir hola
+        run: echo "¡Hola desde GitHub Actions!"
+
+      - name: Ver info del runner
+        run: |
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Rama: ${{ github.ref_name }}"
+          echo "Usuario: ${{ github.actor }}"
