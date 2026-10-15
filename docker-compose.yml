@@ -1,0 +1,13 @@
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ms-demo:latest
+    container_name: ms-demo
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - JAVA_TOOL_OPTIONS=-Xms256m -Xmx512m
+    restart: unless-stopped
